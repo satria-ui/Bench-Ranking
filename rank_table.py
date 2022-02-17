@@ -3,7 +3,7 @@ import numpy as np
 
 xls = pd.ExcelFile("~/Desktop/query_ranks.xlsx")
 df = pd.read_excel(xls, 'query-ranks-100M', index_col = 0)
-df_ranks=df.rank(axis = 0, na_option = 'keep', numeric_only=True, method='first')
+df_ranks=df.rank(axis = 0, na_option = 'keep', numeric_only=True, method='max')
 df = pd.concat([df, df_ranks], axis=1)
 print(df)
 
